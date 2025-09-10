@@ -88,7 +88,7 @@ int main(void) {
   // Copies 7 charactes from "CPE+EE!" to string3.
   strncpy(string3, "CPE+EE!", 7);
   // optional space for you to use
-
+  string3[7] = '\0';
   // Look at your kit before and after stepping over this line
   Graphics_drawString(&g_sContext, (int8_t *)string3, -1, 5, 60, true);
   // You were hoping to see "CPE+EE!" and nothing else. Is this what happened?
@@ -140,7 +140,7 @@ int main(void) {
 }
 
 /*******************************************************************
- * NAME :            make_date_string(int month, int day, int year, unsigned char *string)
+ * NAME : Junwoo Park           make_date_string(int month, int day, int year, unsigned char *string)
  *
  * DESCRIPTION :     Creates a string from three numbers to represent date in
  * months, days, and years
@@ -174,6 +174,7 @@ int main(void) {
 void make_date_string(int month, int day, int year, unsigned char *string) {
   // TODO: Write this function according to the above specification and the
   // description in the homework assignment.
+    snprintf((char *)string, 11, "%02d/%02d/%04d", month, day, year);
 }
 
 /*
